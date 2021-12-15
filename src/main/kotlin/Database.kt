@@ -3,21 +3,9 @@ import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.Table
 import org.jetbrains.exposed.sql.transactions.transaction
-import com.mysql.jdbc.Driver
-
-import java.sql.Connection;
-import java.sql.SQLException;
 
 fun main(args: Array<String>) {
 
-    //LOAD properties
-//    val config = HikariConfig("../../../hikari.properties")
-    //Hikari properties content
-    //    jdbcUrl=jdbc:mysql://localhost:3306/hikari
-    //    driverClassName=com.mysql.cj.jdbc.Driver
-    //    username=root
-    //    password=<pwd here>
-    //Here replace dbname from jdbc url to empty
     val ds = HikariDataSource()
     ds.driverClassName = "com.mysql.cj.jdbc.Driver"
     ds.jdbcUrl = "jdbc:mysql://localhost:3306/library"
@@ -31,6 +19,7 @@ fun main(args: Array<String>) {
         SchemaUtils.createDatabase("hikari")
     }
 
+    //Creating the users table
     transaction(Database.connect(ds)) {
         SchemaUtils.create(Users)
     }
