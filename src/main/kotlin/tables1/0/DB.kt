@@ -11,9 +11,7 @@ public object DB {
 
     var db: DataSource = connect();
 
-    /** Connecting to local db Library
-     *
-     */
+    /** Connecting to local db Library */
     public fun connect(): DataSource {
         val ds = HikariDataSource()
         ds.driverClassName = "com.mysql.cj.jdbc.Driver"
@@ -23,8 +21,6 @@ public object DB {
 
         return ds
     }
-
-
 }
 
 fun main(){
