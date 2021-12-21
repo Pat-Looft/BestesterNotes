@@ -1,4 +1,4 @@
-package tables1.`0`
+package tables1_0
 
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass
@@ -16,14 +16,14 @@ object BasicNoteTable : IntIdTable() {
     val description = varchar("description", 50)
 }
 
-class BasicNote(id: EntityID<Int>) : IntEntity(id)  {
+class BasicNote(id: EntityID<Int>) : IntEntity(id) {
     companion object : IntEntityClass<BasicNote>(BasicNoteTable)
 
-//    var sequelId by BasicNoteTable.sequelId // this isn't really needed, as it is just a duplicate of the id in sql
+    //    var sequelId by BasicNoteTable.sequelId // this isn't really needed, as it is just a duplicate of the id in sql
     var name by BasicNoteTable.name
     var description by BasicNoteTable.description
-}
 
+}
                                       ////////////////////////////////////////
                                      //   <>    CREATION FUNCTIONS    <>   //
                                     ////////////////////////////////////////
@@ -31,7 +31,7 @@ class BasicNote(id: EntityID<Int>) : IntEntity(id)  {
 /** Creates a new basic note in the BasicNote table and returns the ID as an int.
  *  If object is not created, returns -1
  */
-fun createBasicNote(noteName : String, noteDesc : String): Int{
+public fun createBasicNote(noteName : String, noteDesc : String): Int{
     var id : Int = -1
 
     transaction(Database.connect(DB.db)) {

@@ -1,4 +1,4 @@
-package tables1.`0`
+package tables1_0
 
 import org.jetbrains.exposed.dao.IntEntity
 import org.jetbrains.exposed.dao.IntEntityClass

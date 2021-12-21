@@ -1,10 +1,14 @@
-package tables1.`0`
+package tables1_0.CLI
 
 import org.jetbrains.exposed.sql.Database
 import org.jetbrains.exposed.sql.SchemaUtils
 import org.jetbrains.exposed.sql.insertAndGetId
 import org.jetbrains.exposed.sql.transactions.transaction
 import javax.sql.DataSource
+
+import tables1_0.DB
+import tables1_0.createBasicNote
+
 
 class CLI {
 }
@@ -13,15 +17,17 @@ class CLI {
 fun main(){
     //TODO: 12/19/2021 08:30ish pm: get this basic note creating process into a loop
 
-    var db: DataSource = tables1.`0`.DB.connect()
+    var db: DataSource = DB.connect()
 
     //Ask the user what type of note they would like and store it asn int
-    var userEntry = selectNoteType()
+//    var userEntry = selectNoteType()
+    //TODO: 12/20/2021 10:38pm: find way to make this less ugly, maybe use notereader to store the table you want? or figure out how to make a util class
+    NoteReader().retrieveBasicNoteList()
     //TODO: 12/19/2021 08:56pm (1/2): gonna need a method to get the name and description for this note as well. Interface might be good for this on each of the entities
     //TODO: 12/19/2021 08:56pm (2/2): could make an CaptureInput object with the helper methods (prompts) in that class
             //that being said I can't say I am that eager to get the prompts working, I'd rather get something in the db tbh
 
-    //FIRST ATTEMPT AT TESTING THIS BITCH
+/*    //FIRST ATTEMPT AT TESTING THIS BITCH
     var noteParamsMap = HashMap<String, String>()
     val sampleNoteName = "Name - testing"
     val sampleNoteDesc = "Description - testing"
@@ -32,7 +38,7 @@ fun main(){
 
     var result = createNote(1, noteParamsMap)
 
-    print(result)
+    print(result)*/
 }
 
 

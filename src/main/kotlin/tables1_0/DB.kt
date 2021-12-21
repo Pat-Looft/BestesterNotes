@@ -1,4 +1,4 @@
-package tables1.`0`
+package tables1_0
 
 import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
