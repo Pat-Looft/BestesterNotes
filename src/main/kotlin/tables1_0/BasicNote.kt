@@ -12,8 +12,8 @@ import org.jetbrains.exposed.sql.transactions.transaction
 
 object BasicNoteTable : IntIdTable() {
 //    val sequelId = integer("sequel_id").uniqueIndex().autoIncrement()
-    val name = varchar("name", 50)
-    val description = varchar("description", 50)
+    val name = varchar("name", 128)
+    val description = varchar("description", 4096)
 }
 
 class BasicNote(id: EntityID<Int>) : IntEntity(id) {
@@ -37,7 +37,6 @@ public fun createBasicNote(noteName : String, noteDesc : String): Int{
     transaction(Database.connect(DB.db)) {
         //pass an object into here to create a table
         id = BasicNoteTable.insertAndGetId {
-//            it[sequelId] = 1
             it[name] = noteName
             it[description] = noteDesc
         }.value

@@ -22,7 +22,7 @@ fun main(){
     //Ask the user what type of note they would like and store it asn int
 //    var userEntry = selectNoteType()
     //TODO: 12/20/2021 10:38pm: find way to make this less ugly, maybe use notereader to store the table you want? or figure out how to make a util class
-    NoteReader().retrieveBasicNoteList()
+
     //TODO: 12/19/2021 08:56pm (1/2): gonna need a method to get the name and description for this note as well. Interface might be good for this on each of the entities
     //TODO: 12/19/2021 08:56pm (2/2): could make an CaptureInput object with the helper methods (prompts) in that class
             //that being said I can't say I am that eager to get the prompts working, I'd rather get something in the db tbh

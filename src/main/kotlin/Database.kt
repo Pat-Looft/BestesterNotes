@@ -27,6 +27,7 @@ fun main(args: Array<String>) {
 
 object Users : Table() {
     val id = varchar("id", 10) // Column<String>
-    val name = varchar("name", length = 50) // Column<String>
+    val name = varchar("name", length = 128) // Column<String>
+    val desc = varchar("description", length = 4096)//Column<String>
     override val primaryKey = PrimaryKey(id, name = "PK_User_ID")
 }

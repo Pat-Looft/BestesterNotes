@@ -15,7 +15,7 @@ public object DB {
     public fun connect(): DataSource {
         val ds = HikariDataSource()
         ds.driverClassName = "com.mysql.cj.jdbc.Driver"
-        ds.jdbcUrl = "jdbc:mysql://localhost:3306/library"
+        ds.jdbcUrl = "jdbc:mysql://localhost:3306/tables1point0"
         ds.username = "root"
         ds.password = "admin"
 
